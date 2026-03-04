@@ -1,31 +1,28 @@
-"use client";
+// src/components/mycart.js
+import Link from "next/link";
 import React from "react";
 
-function Card({ image, title, date, location }) {
+function Card({ image, title, date, address, id }) {
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden flex mb-6 w-[900px] mx-auto border border-gray-200">
-      
-      <div className="w-1/3">
-        <img
-          src={image}
-          alt={title}
-          className="h-full w-full object-cover"
-        />
+    <div className="flex bg-gray-100 rounded-xl shadow-md p-4 mb-6 items-center justify-between">
+      <img
+        src={image}
+        alt={title}
+        className="w-72 h-40 object-cover rounded-lg"
+      />
+
+      <div className="flex-1 ml-6">
+        <h2 className="text-lg text-black font-semibold">{title}</h2>
+        <p className="text-sm font-normal text-black mt-1">{date}</p>
+        <p className="text-black text-sm">{address}</p>
       </div>
 
-      <div className="w-2/3 p-6 flex flex-col justify-between relative">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">{title}</h2>
-          <p className="font-bold text-gray-800 text-base">{date}</p>
-          <p className="text-gray-600 text-base mt-1">{location}</p>
-        </div>
-
-        <div className="mt-4 flex justify-end">
-          <button className="bg-[#22c55e] text-white px-6 py-2 rounded-md font-medium">
-            Explore Event →
-          </button>
-        </div>
-      </div>
+      <Link
+        href={"/events/" + id}
+        className="bg-green-500 text-white text-sm px-5 py-2 rounded-md hover:bg-green-600 transition flex items-center gap-1"
+      >
+        Explore Event →
+      </Link>
     </div>
   );
 }
