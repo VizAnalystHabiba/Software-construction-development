@@ -1,9 +1,4 @@
-import { Injectable, Get } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class BlogService {
-    @Get()
-    getBlogs() {
-        return 'All Blogs from BlogService';
-  }
-}
+export class BlogService {}

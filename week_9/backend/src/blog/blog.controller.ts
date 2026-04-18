@@ -1,12 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
-import { BlogService } from './blog.service';
+import { Controller } from '@nestjs/common';
 
 @Controller('blog')
-export class BlogController {
-  constructor(private readonly blogService: BlogService) {}
-    
-  @Get()
-  getBlogs() {
-    return this.blogService.getBlogs();
-  }
-} 
+export class BlogController {}

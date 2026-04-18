@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TodoController } from './todo/todo.controller';
-import { TodoService } from './todo/todo.service';
-import { BlogController } from './blog/blog.controller';
-import { BlogService } from './blog/blog.service';
+import { TodoModule } from './todo/todo.module';
+import { BlogModule } from './blog/blog.module';
+import { PrismaModule } from './prisma/prisma.module';
+
 
 @Module({
-  imports: [],
-  controllers: [AppController, TodoController, BlogController],
-  providers: [AppService, TodoService, BlogService],
+  imports: [TodoModule, BlogModule, PrismaModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
